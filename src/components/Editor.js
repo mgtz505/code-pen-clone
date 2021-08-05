@@ -34,7 +34,7 @@ const handleChange = (editor, data, value) => {
                 lint: true,
                 mode: language,
                 lineNumbers: true,
-                theme: "material"
+                theme: "material",
             }}
             />
         </div>
