@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 import "codemirror/mode/xml/xml";
@@ -15,15 +15,18 @@ const {
     onChange
 } = props
 
+const [open, setOpen] = useState(false)
+
+
 const handleChange = (editor, data, value) => {
     onChange(value)
 }
 
     return (
-        <div className="editor-container">
+        <div className={`editor-container ${open ? "" : "collapsed"}`}>
             <div className="editor-title">
             {displayName}
-            <button>Open/Close</button>
+            <button onClick={() => setOpen(prevOpen => !prevOpen)}>Open/Close</button>
             </div>
             <ControlledEditor 
             onBeforeChange={handleChange} 
